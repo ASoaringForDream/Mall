@@ -1,0 +1,5 @@
+export const ADD_COUNTER='addCounter'
+export const ADD_CART='addCart'
+export const ADD_PRO='addPro'
+export const CHANGE_SHOP_CLICK='changeShopClick'
+export const CHANGE_ITEM_CLICK='changeItemClick'
