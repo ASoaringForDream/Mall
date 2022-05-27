@@ -11,7 +11,13 @@ const toast = (message, duration = 2000) => {
   render(NODE, div);
   clearTimeout(time);
   time = setTimeout(() => {
-    render(null, div);
-  }, duration);
+    let toast=document.querySelector('#toast')
+    toast.classList.add('remove')
+    let t=setTimeout(() => {
+      render(null, div);
+      clearTimeout(t)
+    }, 250);
+    clearTimeout(time)
+  }, duration-300);
 };
 export default toast

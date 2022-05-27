@@ -14,9 +14,9 @@
 
 <script>
 import NavBar from "components/common/navbar/NavBar"; //导航栏
-import ProLogin from "./childComps/ProLogin.vue"
-import Account from "./childComps/Account.vue"
-import NormalList from "./childComps/NormalList.vue"
+import ProLogin from "./childComps/ProLogin.vue" //登录注册组件
+import Account from "./childComps/Account.vue"//统计
+import NormalList from "./childComps/NormalList.vue"//服务功能
 export default {
   name:'Profile',
   components:{

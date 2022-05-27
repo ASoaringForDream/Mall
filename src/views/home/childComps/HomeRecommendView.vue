@@ -18,6 +18,7 @@ export default {
     }
   },
   props:{
+    // 推荐分类数据
     recommend:{
       type: Array,
       default(){
@@ -26,6 +27,7 @@ export default {
     }
   },
   methods:{
+    // 监听推荐分类加载完毕
     imagesloaded(){
       if(!this.isloaded){
         this.$emit('recommendloaded')

@@ -1,5 +1,5 @@
 <template>
-  <div class="addToCart">
+  <div class="addToCart" @click.self="backDetail">
     <div class="Info" ref="Info">
       <div class="back" @click="backDetail">
         <img src="~assets/img/detail/cancel.svg" alt="" />
@@ -143,11 +143,13 @@ export default {
       this.InfoStyle["-ms-transform"] = `translate3d(0,-70vh,0)`;
     },
     backDetail() {
-      this.InfoStyle.transition = "";
+      this.InfoStyle.transition = "transform 300ms";
       this.InfoStyle.transform = `translate3d(0,0,0)`;
       this.InfoStyle["-webkit-transform"] = `translate3d(0,0,0)`;
       this.InfoStyle["-ms-transform"] = `translate3d(0,0,0)`;
-      this.$emit("backDetail");
+      setTimeout(() => {
+        this.$emit("backDetail");
+      }, 290);
     },
     isactive(id1, id2) {
       return id1 === this.styleId || id2 === this.sizeId;
@@ -168,7 +170,7 @@ export default {
       if (this.num > 1) {
         this.num--;
       }else{
-        this.$toast('至少选择一件哦')
+        this.$toast('至少选择一件哦!')
       }
     },
     addpronum() {

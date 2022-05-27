@@ -15,6 +15,7 @@ export default {
     };
   },
   methods: {
+    // 监听推荐页面图片加载完毕
     imageloaded() {
       if (!this.isloaded) {
         this.$emit("featureViewloaded");

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { dataFormat } from "common/utils.js";
+import { dataFormat } from "common/utils.js";//格式化时间
 export default {
   name: "DetailComment",
   props: {
@@ -36,11 +36,13 @@ export default {
     },
   },
   computed: {
+    // 格式化时间
     showDate() {
       return (value) => {
         return dataFormat(value * 1000);
       };
     },
+    // 格式化销量
     showNum() {
       return (value) => {
         if (value > 99) {

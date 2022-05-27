@@ -30,6 +30,7 @@ export default {
     },
   },
   methods: {
+    // 监听商品描述界面加载完毕
     DescriptionImage() {
       this.$emit("DescriptionImage");
     },

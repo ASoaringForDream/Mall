@@ -18,6 +18,7 @@ import { Swiper, SwiperItem } from "components/common/swiper/index";
 export default {
   name: "HomeSwiper",
   props: {
+    // 轮播图数据
     banners: {
       type: Array,
       requied: true,
@@ -33,12 +34,15 @@ export default {
     };
   },
   methods: {
+    // 开启轮播图定时器
     startTimer() {
       this.$refs.swiper && this.$refs.swiper.startTimer();
     },
+    // 关闭轮班图定时器
     stopTimer() {
       this.$refs.swiper && this.$refs.swiper.stopTimer();
     },
+    // 监听轮班图加载完毕
     imageLoaded() {
       if (!this.isLoaded) {
         this.$emit("swiperLoaded");

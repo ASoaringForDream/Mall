@@ -123,7 +123,7 @@ export default {
       let moveDis = this.distance + currentP;
       this.setTransform(moveDis);
     },
-    touchEnd(event) {
+    touchEnd() {
       if (this.distance === 0) {
         return;
       } else if (

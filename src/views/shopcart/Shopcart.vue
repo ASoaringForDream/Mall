@@ -30,10 +30,10 @@
 <script>
 import bus from "vue3-eventbus";// 事件总线
 import NavBar from "components/common/navbar/NavBar"; //首页导航栏
-import CartList from "./childComps/CartList.vue";
+import CartList from "./childComps/CartList.vue"; //购物车列表
 import Scroll from "components/common/scroll/Scroll"; //封装的better-scroll
-import CartBottomBar from './childComps/CartBottomBar.vue'
-import AddToCart from "components/content/addToCart/AddToCart.vue";
+import CartBottomBar from './childComps/CartBottomBar.vue'//购物车底部菜单栏
+import AddToCart from "components/content/addToCart/AddToCart.vue";//添加到购物车
 export default {
   name: "Shopcart",
   data(){
@@ -58,7 +58,9 @@ export default {
   },
   activated(){
     this.$refs.Bscroll.Bscroll && this.$refs.Bscroll.Bscroll.refresh()
-    
+  },
+  deactivated(){
+    bus.emit('delClose')
   },
   methods:{
     backDetail(){

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MyGrid from "components/common/MyGrid/My_Grid.vue";
+import MyGrid from "components/common/MyGrid/My_Grid.vue";//封装表格
 import bus from "vue3-eventbus";// 事件总线
 export default {
   name: "CateDetail",
@@ -23,6 +23,7 @@ export default {
     cateDetail: Object,
   },
   methods: {
+    // 图片加载完毕
     imgloaded() {
       bus.emit("imgloaded");
     },

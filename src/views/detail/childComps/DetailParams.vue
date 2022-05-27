@@ -38,6 +38,7 @@ export default {
     },
   },
   methods:{
+    // 监听参数图片显示完毕
     paramsimgload(){
       this.$emit('paramsimgload')
     }

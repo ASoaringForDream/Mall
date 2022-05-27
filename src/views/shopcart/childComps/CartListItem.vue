@@ -80,9 +80,6 @@ export default {
       }
     }, 50);
   },
-  updated() {
-    console.log(this.$refs.choosestyle.clientWidth);
-  },
   methods: {
     checkboxclicked() {
       this.$store.commit("changeItemClick", [

@@ -3,23 +3,23 @@ export function debounce(fun, delay = 500, _this = null, immediate = false) {
   let timer = null; //保存定时器
   let that = _this;
   return function (...args) {
+    that = that === null ? this : that
     if (timer) {
       clearTimeout(timer);
     }
     if (immediate) {
-      if (!timer) fun.apply(that, _args)
+      if (!timer) fun.apply(that, args)
       timer = setTimeout(function () {
         timer = null;
       }, delay)
     } else {
       timer = setTimeout(function () {
         fun.apply(that, args);
-        // console.log(111);
       }, delay);
     }
   };
 }
-
+//格式化时间
 export function dataFormat(dtStr){
   const dt=new Date(dtStr);
   const y=dt.getFullYear();

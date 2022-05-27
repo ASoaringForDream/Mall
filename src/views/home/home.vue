@@ -16,8 +16,8 @@
     <scroll
       class="content"
       ref="Bscroll"
-      :prototype="3"
-      :pullUpLoad="true"
+      :probeType=3
+      :pullUpLoad=true
       @scrolling="contentscroll"
       @pullingUp="loadmore"
     >
@@ -187,30 +187,6 @@ export default {
       let h = this.topContentLength;
       this.$refs.Bscroll.Bscroll &&
         this.$refs.Bscroll.Bscroll.scrollTo(0, -h, 500);
-      // let timer;
-      // function fun() {
-      //   var top = document.body.scrollTop || document.documentElement.scrollTop;
-      //   var speed = top / 4;
-      //   if (top <= h) {
-      //     clearInterval(timer);
-      //   } else {
-      //     if (document.body.scrollTop != 0) {
-      //       if (top - speed <= h) {
-      //         document.body.scrollTop = h;
-      //       } else {
-      //         document.body.scrollTop -= speed;
-      //       }
-      //     } else if (document.documentElement.scrollTop != 0) {
-      //       if (top - speed <= h) {
-      //         document.documentElement.scrollTop = h;
-      //       } else {
-      //         document.documentElement.scrollTop -= speed;
-      //       }
-      //     }
-      //   }
-      // }
-      // fun();
-      // timer = setInterval(fun, 30);
     },
     backupClciked() {
       // console.log(111);

@@ -23,10 +23,10 @@ import {
   getCategory,
   getSubcategory,
   getCategoryDetail,
-} from "network/category.js";
-import MenuBar from "./childComps/MeauBar.vue";
-import NavBar from "components/common/navbar/NavBar";
-import CateDetail from "./childComps/CateDetail.vue";
+} from "network/category.js"; //获取分类信息
+import MenuBar from "./childComps/MeauBar.vue";//左侧菜单栏
+import NavBar from "components/common/navbar/NavBar";//顶部菜单栏
+import CateDetail from "./childComps/CateDetail.vue";//右侧分类信息
 import Scroll from "components/common/scroll/Scroll"; //封装的better-scroll
 import TabControl from "components/content/tabControl/TabControl";//首页tab切换栏
 import ProductsList from "components/content/products/ProductsList";//商品数据列表
@@ -79,6 +79,7 @@ export default {
     },
   },
   methods: {
+    // 获取右侧分类信息
     _getSubcategory(index) {
       this.currentIndex = index;
       let mait_Key = this.categoryList[index].maitKey;
@@ -92,6 +93,7 @@ export default {
         }
       });
     },
+    // 获取分类下的精品推荐列表
     _getCategoryDetail(type) {
       let miniWallkey = this.categoryList[this.currentIndex].miniWallkey;
       getCategoryDetail(miniWallkey, type).then((res) => {
@@ -99,6 +101,7 @@ export default {
         this.cateDetailList[this.currentIndex].categoryDetail[type] = res;
       });
     },
+    // 监听左侧菜单栏点击
     cateItemClick(index) {
       this._getSubcategory(index);
       this.$refs.Bscroll.Bscroll.scrollTo(0,0,300)

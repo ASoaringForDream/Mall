@@ -30,12 +30,15 @@ export default {
     }
   },
   methods:{
+    // 收藏按钮
     setCollect(){
       this.iscollected=!this.iscollected
     },
+    // 添加至购物车
     addToCart(){
       this.$emit('addToCart')
     },
+    // 去结算
     Payment(){
       this.$emit('payment')
     }

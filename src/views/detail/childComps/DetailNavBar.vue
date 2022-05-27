@@ -37,10 +37,12 @@ export default {
     NavBar,
   },
   methods: {
+    // 监听模块的点击
     itemclicked(i) {
       this.currentIndex = i
       this.$emit('scrollToIndex',i)
     },
+    // 返回上一次路由
     backclicked(){
       this.$router.back()
     }

@@ -39,10 +39,12 @@ export default {
     this.refresh()
   },
   methods: {
+    // 左侧菜单栏点击事件
     cateItemClick(index) {
       this.currentIndex=index
       this.$emit('cateItemClick',index)
     },
+    // Bscroll刷新
     refresh(){
       this.$refs.Bscroll.Bscroll && this.$refs.Bscroll.Bscroll.refresh()
     }

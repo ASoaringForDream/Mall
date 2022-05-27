@@ -20,7 +20,7 @@ export default {
     };
   },
   props: {
-    prototype: {
+    probeType: {
       type: Number,
       default: 0,
     },
@@ -29,19 +29,21 @@ export default {
     },
   },
   mounted() {
-    // console.log(document.querySelector('.wrapper').querySelector(('.content')).clientHeight);
+    //新建BScroll对象
     this.Bscroll = new Bscroll(this.$refs.scrollwrapper, {
-      probeType: this.prototype,
+      probeType: this.probeType,
       pullUpLoad: this.pullUpLoad,
-      click: true,
+      click: true
     });
     // console.log(this.Bscroll);
+    // 监听上拉加载更多
     if (this.pullUpLoad instanceof Object === true || this.pullUpLoad===true) {
       this.Bscroll.on("pullingUp", () => {
         this.$emit("pullingUp");
       });
     }
-    if (this.prototype >= 2) {
+    // 监听滚动
+    if (this.probeType >= 2) {
       this.Bscroll.on("scroll", (position) => {
         this.$emit("scrolling", position);
       });

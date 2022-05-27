@@ -9,8 +9,8 @@
       @scrolling="contentscroll"
       ref="Bscroll"
       class="content"
-      :prototype="3"
-      :pullUpLoad="true"
+      :probeType="3"
+      :pullUpLoad=true
     >
       <div class="topbgbox">
         <img class="topbg" src="~assets/img/common/topbg.webp" alt="" />
@@ -52,17 +52,17 @@
 <script>
 import bus from "vue3-eventbus"; // 事件总线
 
-import DetailNavBar from "./childComps/DetailNavBar.vue";
-import DetailSwiper from "./childComps/DetailSwiper.vue";
-import DetailInfo from "./childComps/DetailInfo.vue";
-import DetailShopInfo from "./childComps/DetailShopInfo.vue";
-import DetailDescription from "./childComps/DetailDescription.vue";
-import DetailParams from "./childComps/DetailParams.vue";
-import DetailComment from "./childComps/DetailComment.vue";
+import DetailNavBar from "./childComps/DetailNavBar.vue"; //详情页面顶部栏
+import DetailSwiper from "./childComps/DetailSwiper.vue"; //详情页面轮播图
+import DetailInfo from "./childComps/DetailInfo.vue"; //商品基本信息
+import DetailShopInfo from "./childComps/DetailShopInfo.vue"; //商品店铺信息
+import DetailDescription from "./childComps/DetailDescription.vue"; //商品描述
+import DetailParams from "./childComps/DetailParams.vue"; //商品参数
+import DetailComment from "./childComps/DetailComment.vue"; //商品评价
 import ProductsList from "components/content/products/ProductsList"; //商品数据列表
-import DetailBottomBar from "./childComps/DetailBottomBar.vue";
+import DetailBottomBar from "./childComps/DetailBottomBar.vue"; //底部菜单栏
 import BackTop from "components/content/backtop/BackTop"; //回到顶部按钮
-import AddToCart from "components/content/addToCart/AddToCart.vue";
+import AddToCart from "components/content/addToCart/AddToCart.vue"; //添加到购物车
 
 import { itemListener } from "common/mixin"; //混入函数
 
@@ -72,20 +72,19 @@ export default {
   name: "Detail",
   data() {
     return {
-      id: null,
-      banner: [],
-      goods: {},
-      shop: {},
-      dedescription: {},
-      params: {},
-      DetailComment: {},
-      recommend: [],
-      Topoffset: [0],
-      DetailInfo:{},
-      getTopoffset: null,
-      isbacktopshow: false,
-      isAddToCartshow:false,
-      isPaymentshow:false
+      id: null, //商品ID
+      banner: [], //商品轮播图
+      goods: {}, // 商品全部信息
+      shop: {}, //店铺信息
+      dedescription: {}, //描述信息
+      params: {}, //参数信息
+      DetailComment: {}, //评价信息
+      recommend: [], //推荐列表
+      Topoffset: [0], //距离顶部的距离
+      DetailInfo:{}, //商品基本信息
+      isbacktopshow: false, //返回顶部按钮显示状态
+      isAddToCartshow:false, //添加购物车界面
+      isPaymentshow:false //购买界面
     };
   },
   mixins: [itemListener],
@@ -130,31 +129,37 @@ export default {
     bus.off("imgloaded", this.ItemListener);
   },
   methods: {
+    // 轮播图加载完毕
     swiperimage() {
       if (this.refresh) {
         this.refresh();
       }
       this.setTopoffset();
     },
+    // 描述图片加载完毕
     DescriptionImage() {
       if (this.refresh) this.refresh();
       this.setTopoffset();
     },
+    // 参数图片加载完毕
     paramsimgload() {
       if (this.refresh) this.refresh();
       this.setTopoffset();
     },
+    // 获取各个部分距离顶部的距离
     setTopoffset() {
       // console.log(this.Topoffset[1]);
       this.Topoffset[1] = this.$refs.detailParams.$el.offsetTop;
       this.Topoffset[2] = this.$refs.detailComment.$el.offsetTop;
       this.Topoffset[3] = this.$refs.DetailProducts.offsetTop;
     },
+    // 滚动到指定部分
     scrollToIndex(i) {
       this.setTopoffset();
       this.$refs.Bscroll.Bscroll &&
         this.$refs.Bscroll.Bscroll.scrollTo(0, -this.Topoffset[i], 300);
     },
+    // 监听滚动事件
     contentscroll(position) {
       this.setTopoffset();
       if (-position.y >= this.Topoffset[3]) {
@@ -172,18 +177,22 @@ export default {
         this.isbacktopshow = false;
       }
     },
+    // 返回顶部
     backupClciked() {
       this.$refs.Bscroll.Bscroll &&
         this.$refs.Bscroll.Bscroll.scrollTo(0, 0, 500);
     },
+    // 添加购物车
     addToCart() {
       this.isAddToCartshow=true
       // this.$refs.addToCart.scrollToShow()
     },
+    // 关闭购物车（结算）界面
     backDetail (){
       this.isAddToCartshow=false
       this.isPaymentshow=false
     },
+    // 去结算界面显示
     payment(){
       this.isPaymentshow=true
     }

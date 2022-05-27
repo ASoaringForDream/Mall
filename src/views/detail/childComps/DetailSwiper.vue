@@ -44,7 +44,8 @@ export default {
     stopTimer() {
       this.$refs.swiper && this.$refs.swiper.stopTimer();
     },
-    imageLoaded(index) {
+    // 选取所有轮播图中height最小的图片作为标准大小
+    imageLoaded() {
       let min = this.$refs.imgItem[0].height;
       for (let item of this.$refs.imgItem) {
         if (min > item.height) {
