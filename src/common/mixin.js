@@ -21,5 +21,4 @@ export const itemListener = {
     };
     bus.on("imgloaded", this.ItemListener);
   },
-
 }

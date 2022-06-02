@@ -76,7 +76,7 @@ export default {
         if (this.$refs.choosestyle.clientWidth >= 200) {
           this.$refs.choosestyle.style.width = "200px";
         }
-        clearInterval(timer)
+        clearInterval(timer);
       }
     }, 50);
   },
