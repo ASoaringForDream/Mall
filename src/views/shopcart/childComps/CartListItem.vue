@@ -115,6 +115,10 @@ export default {
     delPro() {
       // console.log("删除商品");
       this.$store.commit("delPro", this.pro.stockId);
+      this.$store.commit("changeItemClick", [
+        this.pro.stockId,
+        true
+      ]);
       this.isDelShow = false;
     },
     oneProductionisClicked() {

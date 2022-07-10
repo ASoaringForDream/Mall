@@ -20,7 +20,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 项目展示
 
-![](README/1.png)
+![](项目展示/1.png)
 
 ![](项目展示/2.png)
 

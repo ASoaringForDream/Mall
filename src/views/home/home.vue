@@ -61,14 +61,11 @@ import TabControl from "components/content/tabControl/TabControl";//首页tab切
 import ProductsList from "components/content/products/ProductsList";//商品数据列表
 import Scroll from "components/common/scroll/Scroll";//封装的better-scroll
 import BackTop from "components/content/backtop/BackTop";//回到顶部按钮
-
 import HomeSwiper from "views/home/childComps/HomeSwiper";//首页轮播图
 import homerecommedview from "views/home/childComps/HomeRecommendView";//首页推荐列表
 import featureView from "./childComps/featureView";//首页流行页表
-
 import {itemListener} from "common/mixin"//混入函数
-
-import { getHomeMultidata, getHomeProducts } from "network/home";
+import { getHomeMultidata, getHomeProducts } from "network/home";//网络请求
 export default {
   name: "home",
   components: {
